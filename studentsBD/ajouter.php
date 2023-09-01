@@ -15,8 +15,48 @@
     $nomErreur = "";
 
 
-    
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        echo "Vérification des données...<br>Veuillez patienter...<br>";
 
+        if(empty($_POST['nom_prenom'])){
+            $nomErreur = "Veuillez fournir un nom, prénom.";
+            $erreur = true;
+
+            if(!empty($_POST["nom_prenom"]))$matricule = test_input($_POST["matricule"]);
+            if(!empty($_POST["matricule"]))$programme = test_input($_POST["programme"]);
+            if(!empty($_POST["carte_etudiante_image"]))$carte_etudiante_image = test_input($_POST["carte_etudiante_image"]);
+        }
+        else if(empty($_POST['matricule'])){
+            $nomErreur = "Veuillez fournir un matricule.";
+            $erreur = true;
+
+            if(!empty($_POST["nom_prenom"]))$nom_prenom = test_input($_POST["nom_prenom"]);
+            if(!empty($_POST["matricule"]))$programme = test_input($_POST["programme"]);
+            if(!empty($_POST["carte_etudiante_image"]))$carte_etudiante_image = test_input($_POST["carte_etudiante_image"]);
+        }
+        else if(empty($_POST['programme'])){
+            $nomErreur = "Veuillez fournir votre programme.";
+            $erreur = true;
+
+            if(!empty($_POST["nom_prenom"]))$nom_prenom = test_input($_POST["nom_prenom"]);
+            if(!empty($_POST["matricule"]))$matricule = test_input($_POST["matricule"]);
+            if(!empty($_POST["carte_etudiante_image"]))$carte_etudiante_image = test_input($_POST["carte_etudiante_image"]);
+        }
+        else if(empty($_POST["carte_etudiante_image"])){
+            $nomErreur = "veuillez fournir votre carte éudiante.";
+            $erreur = true;
+
+            if(!empty($_POST["nom_prenom"]))$nom_prenom = test_input($_POST["nom_prenom"]);
+            if(!empty($_POST["matricule"]))$matricule = test_input($_POST["matricule"]);
+            if(!empty($_POST["programme"]))$programme = test_input($_POST["programme"]);
+        }
+        else
+        {
+            echo "Vérification réussie...<br>";
+        }
+    }    
+
+    if($_SERVER["REQUEST_METHOD"] != "POST" || $erreur == true) {
     
     ?>
 
@@ -44,6 +84,8 @@
         </form>
     
     <?php
+    }
+
     if ($_SERVER["REQUEST_METHOD"] != "POST") 
     {
         
@@ -64,7 +106,7 @@
     }
     echo "Connected successfully <br>";
 
-
+    
     
         $sql = "INSERT INTO etudiants (id, nom_prenom, matricule, programme, carte_etudiante_image)
         VALUES(NULL, '". $_POST['nom_prenom'] ."','". $_POST['matricule'] ."','". $_POST['programme'] ."','". $_POST['carte_etudiante_image'] ."')";
@@ -77,15 +119,6 @@
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
     
-        
-
-    if(mysqli_query($conn, $sql)){
-        echo "enregistrement réussi";
-    } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-    }
-    
-    echo $sql;
     
     }
 

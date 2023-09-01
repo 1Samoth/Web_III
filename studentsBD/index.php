@@ -43,6 +43,8 @@
                             <th scope=\"col\">Nom, Prénom</th>
                             <th scope=\"col\">Matricule</th>
                             <th scope=\"col\">Programme</th>
+                            <th scope=\"col\">Modifier</th>
+                            <th scope=\"col\">Supprimer</th>
                         </tr>
                     </thead>
                     <tbody>";
@@ -54,6 +56,8 @@
                         <td>". $row["nom_prenom"] ."</td>
                         <td>". $row["matricule"] ."</td>
                         <td>". $row["programme"] ."</td>
+                        <td><a href=\"modifier.php?id=" . $row["id"] . "\">X</a></td>
+                        <td><a href=\"supprimer.php?id=".$row["id"]."\">X</a></td>
                     </tr>";
         }
 
@@ -62,9 +66,10 @@
                 </table>";
 
         //Bouton qui renvoie vers ajouter.php
-        echo "<form action=\"ajouter.php\" method=\"post\"><button type=\"submit\" class=\"btn btn-secondary m-5\">Ajouter</button>
-                <button type=\"button\" class=\"btn btn-secondary\" disabled>Supprimer</button></form>";
-    } else {
+        echo "<form action=\"ajouter.php\" method=\"post\"><button type=\"submit\" class=\"btn btn-secondary m-5\">Ajouter</button>";
+    } 
+    else 
+    {
         echo "0 results";
     }
     $conn->close();
