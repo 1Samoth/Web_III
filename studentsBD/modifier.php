@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <title>Document</title>
+    <title>Modifier</title>
 </head>
 <body>
     <?php
@@ -152,6 +152,12 @@
                     SET nom_prenom=\"".$_POST["nom_prenom"]."\", matricule=\"".$_POST["matricule"]."\", programme=\"".$_POST["programme"]."\", carte_etudiante_image=\"".$_POST["carte_etudiante_image"]."\"
                     WHERE id=\"".$_POST["id_post"]."\";";
     
+            if(mysqli_query($conn, $sql)){
+            echo "enregistrement réussi";
+            } else {
+                echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+            }
+
             echo "sql=" . $sql . "<br><br><br>";
         
             echo "Clickez <a href=\"index.php\">ici</a> pour retourner au menu principal.";
