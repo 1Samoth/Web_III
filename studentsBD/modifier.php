@@ -124,9 +124,8 @@
             <label for="carte_etudiante_image" class="form-label">Photo Étudiante : </label>
                 <input type="text" class="form-control" name="carte_etudiante_image" value="<?php echo $row['carte_etudiante_image'] ?>">
             </div>
-            <div class="mb-3 form-check" style="max-width:30%;">
                 <input type="hidden" class="form-control" name="id_post" value="<?php echo $row['id'] ?>">
-            </div>
+            
             <button type="submit" class="btn btn-primary mx-4">Soumettre</button>
 
         </form>
