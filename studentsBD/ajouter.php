@@ -81,6 +81,8 @@
                 <input type="text" class="form-control" name="carte_etudiante_image" value="<?php echo $carte_etudiante_image ?>">
             </div>
             <button type="submit" class="btn btn-primary mx-4">Soumettre</button>
+            <button class="btn btn-primary mx-4"><a href='index.php' style="color:white; text-decoration:none;">Retour</a></button>
+            
         </form>
     
     <?php

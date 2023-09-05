@@ -127,7 +127,7 @@
                 <input type="hidden" class="form-control" name="id_post" value="<?php echo $row['id'] ?>">
             
             <button type="submit" class="btn btn-primary mx-4">Soumettre</button>
-
+            <button class="btn btn-primary mx-4"><a href='index.php' style="color:white; text-decoration:none;">Retour</a></button>
         </form>
 
     <?php
