@@ -34,7 +34,7 @@
         //action (query)
         $result = $conn->query($sql);
         if(mysqli_query($conn, $sql)){
-            echo "enregistrement réussi";
+            echo "supprimage réussi";
         }
         else
         {
