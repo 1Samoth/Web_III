@@ -88,7 +88,7 @@
     <?php
     }
 
-    if ($_SERVER["REQUEST_METHOD"] != "POST") 
+    if ($_SERVER["REQUEST_METHOD"] == "POST") 
     {
         
     $servername = "localhost";
@@ -116,7 +116,7 @@
         echo "sql=" . $sql . "<br><br><br>";
 
         if(mysqli_query($conn, $sql)){
-            echo "enregistrement réussi";
+            header('Location: http://localhost/Web_III/studentsBD/index.php?action=reussi');
         } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }

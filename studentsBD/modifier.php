@@ -153,14 +153,13 @@
                     WHERE id=\"".$_POST["id_post"]."\";";
     
             if(mysqli_query($conn, $sql)){
-            echo "enregistrement réussi";
+            header('Location: http://localhost/Web_III/studentsBD/index.php?action=reussi');
+            
             } else {
                 echo "Error: " . $sql . "<br>" . mysqli_error($conn);
             }
 
-            echo "sql=" . $sql . "<br><br><br>";
-        
-            echo "Clickez <a href=\"index.php\">ici</a> pour retourner au menu principal.";
+            
         }
     
     

@@ -34,7 +34,7 @@
         //action (query)
         $result = $conn->query($sql);
         if(mysqli_query($conn, $sql)){
-            echo "supprimage réussi";
+            header('Location: http://localhost/Web_III/studentsBD/index.php?action=reussi');
         }
         else
         {

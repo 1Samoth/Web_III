@@ -10,6 +10,14 @@
 <body style="background-color:#212529;">
 <!-- Connection à la BD -->
     <?php
+    if(isset($_GET['action'])){
+        if($_GET['action'] == "reussi"){
+            ?>
+            <script>alert("action réussie");</script>
+            <?php
+        }
+    }
+    
     $servername = "localhost";
     $username = "root";
     $password = "root";
@@ -66,7 +74,7 @@
                 </table>";
 
         //Bouton qui renvoie vers ajouter.php
-        echo "<form action=\"ajouter.php\" method=\"post\"><button type=\"submit\" class=\"btn btn-secondary m-5\">Ajouter</button>";
+        echo "<form action=\"ajouter.php\" method=\"get\"><button type=\"submit\" class=\"btn btn-secondary m-5\">Ajouter</button>";
     } 
     else 
     {
