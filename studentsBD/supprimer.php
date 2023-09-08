@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +11,7 @@
 </head>
 <body>
     <?php
+    if($_SESSION["connexion"] == true){
         $id = $_GET["id"];
 
         $servername = "localhost";
@@ -44,7 +48,10 @@
         echo "sql=".$sql."<br><br>";
 
         echo "Clickez <a href=\"index.php\">ici</a> pour retourner au menu principal.";
-
+    }
+    else{
+        header("location: login.php?action=login");
+    }
     ?>
 </body>
 </html>
