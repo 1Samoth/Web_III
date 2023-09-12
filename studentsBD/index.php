@@ -13,6 +13,7 @@ session_start();
 <body style="background-color:#212529;">
 <!-- s'assurer que c'est un identifiant unique, associé à un mot de passe crypté-->
 <!-- Connection à la BD -->
+    <button class="btn btn-secondary" style="margin:1%;float:right;"><a href="login.php?action=disconnect" style="color:white;text-decoration:none;">Déconnection</a></button>
     <?php
         if($_SESSION["connexion"] == true){
         if(isset($_GET['action'])){
@@ -83,7 +84,7 @@ session_start();
 
             //Bouton qui déconnecte la session
             ?>
-            <button class="btn btn-secondary"><a href="login.php?action=disconnect" style="color:white;text-decoration:none;">Déconnection</a></button>
+            
             <?php
         } 
         else 
